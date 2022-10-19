@@ -55,11 +55,12 @@ project(":desktop") {
 
 project(":core") {
     apply plugin: "java-library"
+    apply plugin: "scala"
 
 
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
-        
+        api "org.scala-lang:scala-library:2.13.10"
     }
 }
 
