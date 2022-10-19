@@ -1,5 +1,8 @@
+apply plugin: 'scala'
+
 sourceCompatibility = 1.8
 sourceSets.main.java.srcDirs = [ "src/" ]
+sourceSets.main.scala.srcDirs = [ "src/" ]
 sourceSets.main.resources.srcDirs = ["../assets"]
 
 project.ext.mainClassName = "com.mygdx.game.DesktopLauncher"
@@ -40,6 +43,7 @@ task dist(type: Jar) {
     }
     with jar
 }
+
 
 
 dist.dependsOn classes
