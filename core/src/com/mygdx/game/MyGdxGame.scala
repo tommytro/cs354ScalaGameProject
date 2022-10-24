@@ -61,7 +61,7 @@ class MyGdxGame extends ApplicationAdapter {
 		var speedConstant = 500;
 		if(Gdx.input.isKeyPressed(Input.Keys.W) || Gdx.input.isKeyPressed(Input.Keys.UP)){
 			farmer.y = farmer.y + 500 * Gdx.graphics.getDeltaTime();
-			//if(farmer.y < 0) {farmer.y = 0}
+			if(farmer.y < 0) {farmer.y = 0}
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.A) || Gdx.input.isKeyPressed(Input.Keys.LEFT)){
 			farmer.x = farmer.x - 500 * Gdx.graphics.getDeltaTime();
@@ -69,7 +69,7 @@ class MyGdxGame extends ApplicationAdapter {
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.S) || Gdx.input.isKeyPressed(Input.Keys.DOWN)){
 			farmer.y = farmer.y - 500 * Gdx.graphics.getDeltaTime();
-			//if(farmer.y > 400) {farmer.y = 400}
+			if(farmer.y > 400) {farmer.y = 400}
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.D) || Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
 			farmer.x = farmer.x + 500 * Gdx.graphics.getDeltaTime();
