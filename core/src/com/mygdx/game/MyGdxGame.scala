@@ -58,17 +58,22 @@ class MyGdxGame extends ApplicationAdapter {
 		//basic form of movement
 		//need to add delay frame or single press function
 		// since holding a key makes him zoom
+		var speedConstant = 500;
 		if(Gdx.input.isKeyPressed(Input.Keys.W) || Gdx.input.isKeyPressed(Input.Keys.UP)){
-			farmer.y = farmer.y + 64
+			farmer.y = farmer.y + 500 * Gdx.graphics.getDeltaTime();
+			if(farmer.y < 0) {farmer.y = 0}
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.A) || Gdx.input.isKeyPressed(Input.Keys.LEFT)){
-			farmer.x = farmer.x - 64
+			farmer.x = farmer.x - 500 * Gdx.graphics.getDeltaTime();
+			if(farmer.x < 0) {farmer.x = 0}
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.S) || Gdx.input.isKeyPressed(Input.Keys.DOWN)){
-			farmer.y = farmer.y - 64
+			farmer.y = farmer.y - 500 * Gdx.graphics.getDeltaTime();
+			if(farmer.y > 400) {farmer.y = 400}
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.D) || Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
-			farmer.x = farmer.x + 64
+			farmer.x = farmer.x + 500 * Gdx.graphics.getDeltaTime();
+			if(farmer.x > 1200) { farmer.x = 1200}
 		}
 	}
 
