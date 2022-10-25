@@ -2,7 +2,7 @@ package com.mygdx.game
 
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
-import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Input
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.utils.ScreenUtils
@@ -17,6 +17,7 @@ class MyGdxGame extends ApplicationAdapter {
   //Create asset names
   private[game] var dirtTex: Texture = null
   private[game] var farmerTex: Texture = null
+//   var farmerAnim: Animation = null
 
   //create object names
   var character: Character = new Character();
@@ -27,8 +28,10 @@ class MyGdxGame extends ApplicationAdapter {
 		batch = new SpriteBatch()
 
 		//Assign asset names to their sources
-		dirtTex = new Texture("dirt.png")
-		farmerTex = new Texture("farmer.png")
+		dirtTex = new Texture(("dirt.png"))
+		farmerTex = new Texture("walk and idle.png")
+		// farmerAnim = new Animation(0.033f, atlas.findRegions(walk and idle.png), PlayMode.LOOP)
+
 	}
 
 	//render assets
