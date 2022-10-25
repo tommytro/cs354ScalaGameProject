@@ -73,6 +73,9 @@ com_crashlytics_export_strings.xml
 /ios/nbbuild/
 
 /dist/
+
+.metals
+.vscode
 /android/dist/
 /core/dist/
 /desktop/dist/
