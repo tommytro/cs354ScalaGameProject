@@ -16,8 +16,6 @@ import com.mygdx.game.MapManager
 import com.mygdx.game.Character
 
 class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
-  
-  	//Create field names
 	
 	var animationFrames: Array[TextureRegion] = Array()
   	var character: Character = new Character();
@@ -42,7 +40,7 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 		Gdx.gl.glClearColor(0, 0, 0, 1)
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
 
-		camera.position.set(5, 5, 0f) // need to edit to follow player
+		camera.position.set(character.farmer.x /50, character.farmer.y /50, 0) // need to edit to follow player
 		camera.update
 
 		mapRenderer.setView(camera)
