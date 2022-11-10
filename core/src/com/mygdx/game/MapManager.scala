@@ -13,11 +13,15 @@ import com.mygdx.game.AssetsManager
 
 class MapManager{
 
-        val mapTable = new Hashtable[String, String]()
+    val playerStart = new Vector2(0, 0)
+    val mapTable = new Hashtable[String, String]()
 
-        mapTable.put(MapManager.SIMPLE_MAP, "maps/simple_map.tmx")
+    mapTable.put(MapManager.SIMPLE_MAP, "maps/simple_map.tmx")
 
-        var currentMap:TiledMap = null
+    val playerStartPositionRect = new Vector2(0, 0)
+    val convertedUnits = new Vector2(0,0)
+
+    var currentMap:TiledMap = null
     var currentMapName:String = null
     var previousMapName:String = null
     var collisionLayer:MapLayer = null
