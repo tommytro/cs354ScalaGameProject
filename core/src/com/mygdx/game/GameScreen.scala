@@ -22,6 +22,12 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	var mapRenderer = new OrthogonalTiledMapRenderer(GameScreen.mapMgr.getCurrentMap(), MapManager.UNIT_SCALE)
 	val camera = new OrthographicCamera()
 	val spriteBatch = new SpriteBatch()
+	var top_left = Array(14,24,0)
+	var top_right = Array(42,24,0)
+	var bot_left = Array(14,8,0)
+	var bot_right = Array(42,8,0)
+	var next_pos = top_left //default to top_left
+	var curr_pos = next_pos 
 
 	override def show{
 
@@ -40,8 +46,49 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 		Gdx.gl.glClearColor(0, 0, 0, 1)
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
 
-		camera.position.set(character.farmer.x /50, character.farmer.y /50, 0) // need to edit to follow player
-		camera.update
+		if(character.farmer.x >= 1280 && curr_pos == top_left){
+		next_pos = top_right //change to top_right cam
+		curr_pos = next_pos //update curr_pos
+		character.farmer.x = 0
+		}
+		else if(character.farmer.x <= 0 && curr_pos == top_right){
+		next_pos = top_left //change to top_left cam
+		curr_pos = next_pos //update curr_pos
+		character.farmer.x = 1280
+		}
+		else if(character.farmer.x >= 1280 && curr_pos == bot_left){
+		next_pos = bot_right //change to bot_right cam
+		curr_pos = next_pos //update curr_pos
+		character.farmer.x = 0
+		}
+		else if(character.farmer.x <= 0 && curr_pos == bot_right){
+		next_pos = bot_left //change to bot_left cam
+		curr_pos = next_pos //update curr_pos
+		character.farmer.x = 1280
+		}
+		else if(character.farmer.y <= 0 && curr_pos == top_left){
+		next_pos = bot_left //change to bot_left cam
+		curr_pos = next_pos //update curr_pos
+		character.farmer.y = 720
+		}
+		else if(character.farmer.y <= 0 && curr_pos == top_right){
+		next_pos = bot_right //change to bot_right cam
+		curr_pos = next_pos //update curr_pos
+		character.farmer.y = 720
+		}
+		else if(character.farmer.y >= 720 && curr_pos == bot_left){
+		next_pos = top_left //change to top_left cam
+		curr_pos = next_pos //update curr_pos
+		character.farmer.y = 0
+		}
+		else if(character.farmer.y >= 720 && curr_pos == bot_right){
+		next_pos = top_right //change to top_right cam
+		curr_pos = next_pos //update curr_pos
+		character.farmer.y = 0
+		}
+
+		camera.position.set(next_pos(0),next_pos(1),next_pos(2)) // update camera to next_pos
+		camera.update 
 
 		mapRenderer.setView(camera)
 		mapRenderer.render()

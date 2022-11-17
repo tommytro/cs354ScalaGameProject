@@ -34,15 +34,15 @@ class Character{
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.A) || Gdx.input.isKeyPressed(Input.Keys.LEFT)){
             farmer.x = farmer.x - 500 * Gdx.graphics.getDeltaTime();
-			if(farmer.x < 0) {farmer.x = 0}
+			//if(farmer.x < 0) {farmer.x = 0}
         }
 		if(Gdx.input.isKeyPressed(Input.Keys.S) || Gdx.input.isKeyPressed(Input.Keys.DOWN)){
 			farmer.y = farmer.y - 500 * Gdx.graphics.getDeltaTime();
-			//if(farmer.y > 400) {farmer.y = 400}
+			//if(farmer.y > 720) {farmer.y = 720}
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.D) || Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
 			farmer.x = farmer.x + 500 * Gdx.graphics.getDeltaTime();
-			if(farmer.x > 1200) { farmer.x = 1200}
+			//if(farmer.x > 1280) { farmer.x = 1280}
 		}
 	}
 
