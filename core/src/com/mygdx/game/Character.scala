@@ -29,19 +29,19 @@ class Character{
     def movementController(): Unit = {
 
         if(Gdx.input.isKeyPressed(Input.Keys.W) || Gdx.input.isKeyPressed(Input.Keys.UP)){
-			farmer.y = farmer.y + 500 * Gdx.graphics.getDeltaTime();
+			farmer.y = farmer.y + 100 * Gdx.graphics.getDeltaTime();
 			//if(farmer.y < 0) {farmer.y = 0}
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.A) || Gdx.input.isKeyPressed(Input.Keys.LEFT)){
-            farmer.x = farmer.x - 500 * Gdx.graphics.getDeltaTime();
+            farmer.x = farmer.x - 100 * Gdx.graphics.getDeltaTime();
 			//if(farmer.x < 0) {farmer.x = 0}
         }
 		if(Gdx.input.isKeyPressed(Input.Keys.S) || Gdx.input.isKeyPressed(Input.Keys.DOWN)){
-			farmer.y = farmer.y - 500 * Gdx.graphics.getDeltaTime();
+			farmer.y = farmer.y - 100 * Gdx.graphics.getDeltaTime();
 			//if(farmer.y > 720) {farmer.y = 720}
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.D) || Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
-			farmer.x = farmer.x + 500 * Gdx.graphics.getDeltaTime();
+			farmer.x = farmer.x + 100 * Gdx.graphics.getDeltaTime();
 			//if(farmer.x > 1280) { farmer.x = 1280}
 		}
 	}
