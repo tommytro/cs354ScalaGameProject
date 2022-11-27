@@ -14,12 +14,14 @@ import scala.collection.mutable.ListBuffer
 import com.mygdx.game.MyGdxGame
 import com.mygdx.game.MapManager
 import com.mygdx.game.Character
+import com.mygdx.game.Chicken
 
 
 class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	
 	var animationFrames: Array[TextureRegion] = Array()
   	var character: Character = new Character();
+	var chicken: Chicken = new Chicken();
 	var mapRenderer = new OrthogonalTiledMapRenderer(GameScreen.mapMgr.getCurrentMap(), MapManager.UNIT_SCALE)
 	val camera = new OrthographicCamera()
 	val spriteBatch = new SpriteBatch()
@@ -97,6 +99,7 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 
 		character.movementController(); //Calls to character movement every frame to enable user input
 		character.render()
+		chicken.render()
 
 		mapRenderer.getBatch().end()
 	}
