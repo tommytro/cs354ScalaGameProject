@@ -15,6 +15,7 @@ import com.mygdx.game.MyGdxGame
 import com.mygdx.game.MapManager
 import com.mygdx.game.Character
 
+
 class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	
 	var animationFrames: Array[TextureRegion] = Array()
@@ -120,6 +121,7 @@ object GameScreen{
 	var mapMgr:MapManager = MapManager()
 
 	val farmerTex = new Texture("walk and idle.png")
+	val chickenTex = new Texture("chicken.png")
 
 	private object VIEWPORT{
 		var viewportWidth:Float = 0
