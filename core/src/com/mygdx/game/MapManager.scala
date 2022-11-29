@@ -16,7 +16,7 @@ class MapManager{
     val playerStart = new Vector2(0, 0)
     val mapTable = new Hashtable[String, String]()
 
-    mapTable.put(MapManager.SIMPLE_MAP, "maps/simple_map.tmx")
+    mapTable.put(MapManager.OUTSIDE_MAP, "maps/outside_map.tmx")
 
     val playerStartPositionRect = new Vector2(0, 0)
     val convertedUnits = new Vector2(0,0)
@@ -57,7 +57,7 @@ class MapManager{
      */
     def getCurrentMap():TiledMap = {
     	if(currentMap == null){
-    		currentMapName = MapManager.SIMPLE_MAP
+    		currentMapName = MapManager.OUTSIDE_MAP
     		loadMap(currentMapName)
     	}
     	currentMap
@@ -74,7 +74,7 @@ object MapManager{
 
 	private val TAG:String = MapManager.getClass.getSimpleName()
 
-	val SIMPLE_MAP:String = "SIMPLE_MAP"
+	val OUTSIDE_MAP:String = "OUTSIDE_MAP"
 	private val MAP_COLLISION_LAYER:String = "MAP_COLLISION_LAYER"
 
 	val UNIT_SCALE:Float = 1/16f
