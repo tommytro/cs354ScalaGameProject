@@ -14,11 +14,13 @@ import scala.collection.mutable.ListBuffer
 import com.mygdx.game.MyGdxGame
 import com.mygdx.game.MapManager
 import com.mygdx.game.Character
+import com.mygdx.game.Plant
 
 class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	
 	var animationFrames: Array[TextureRegion] = Array()
   	var character: Character = new Character();
+	var plant: Plant = new Plant(1);
 	var mapRenderer = new OrthogonalTiledMapRenderer(GameScreen.mapMgr.getCurrentMap(), MapManager.UNIT_SCALE)
 	val camera = new OrthographicCamera()
 	val spriteBatch = new SpriteBatch()
@@ -96,6 +98,7 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 
 		character.movementController(); //Calls to character movement every frame to enable user input
 		character.render()
+		plant.render()
 
 		mapRenderer.getBatch().end()
 	}
@@ -120,6 +123,7 @@ object GameScreen{
 	var mapMgr:MapManager = MapManager()
 
 	val farmerTex = new Texture("walk and idle.png")
+	val allPlantsTex = new Texture("plants.png")
 
 	private object VIEWPORT{
 		var viewportWidth:Float = 0
