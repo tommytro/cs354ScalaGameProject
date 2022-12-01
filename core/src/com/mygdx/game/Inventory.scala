@@ -19,7 +19,7 @@ import scala.collection.mutable.HashMap
 class Inventory {
   //Basic instance variables
   var batch = new SpriteBatch()
-  var character = new Character()
+  var character = new Character() 
 
 
   //Textures

@@ -14,7 +14,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion
 
 class Character{
     
-	
     var moveSpeed : Float = 4
     var attackSpeed: Float = 4
     var useSpeed: Float = 4
