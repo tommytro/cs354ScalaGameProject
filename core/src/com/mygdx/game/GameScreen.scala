@@ -24,6 +24,7 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	var mapRenderer = new OrthogonalTiledMapRenderer(GameScreen.mapMgr.getCurrentMap(), MapManager.UNIT_SCALE)
 	val camera = new OrthographicCamera()
 	val spriteBatch = new SpriteBatch()
+	var inventory: Inventory = new Inventory()
 	var top_left = Array(14,24,0)
 	var top_right = Array(42,24,0)
 	var bot_left = Array(14,8,0)
@@ -99,6 +100,9 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 		character.movementController(); //Calls to character movement every frame to enable user input
 		character.render()
 		plant.render()
+
+		inventory.characterPosition()
+		inventory.render()
 
 		mapRenderer.getBatch().end()
 	}
