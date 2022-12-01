@@ -20,7 +20,20 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	
 	var animationFrames: Array[TextureRegion] = Array()
   	var character: Character = new Character();
+	
 	var plant: Plant = new Plant(1);
+	var soilGroup: Array[Soil] = Array()
+	var soilCount: Int = 10
+	var currSoilNum: Int = 0
+	var soil = new Soil()
+	soilGroup :+ soil
+	// while(currSoilNum < soilCount){
+	// 	var soil = new Soil()
+	// 	soil.setPos(100 + (16 * currSoilNum), 100 + (16 * currSoilNum))
+	// 	soilGroup :+ soil
+	// 	currSoilNum += 1
+	// }
+
 	var mapRenderer = new OrthogonalTiledMapRenderer(GameScreen.mapMgr.getCurrentMap(), MapManager.UNIT_SCALE)
 	val camera = new OrthographicCamera()
 	val spriteBatch = new SpriteBatch()
@@ -32,7 +45,7 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	var next_pos = top_left //default to top_left
 	var curr_pos = next_pos 
 
-	override def show{
+	override def show(): Unit = {
 
 		GameScreen.VIEWPORT.setupViewport(15, 15, Gdx.graphics.getWidth(), Gdx.graphics.getHeight())
 
@@ -44,7 +57,7 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	}
 
 	//render assets
-	override def render(delta:Float){
+	override def render(delta:Float): Unit = {
 
 		Gdx.gl.glClearColor(0, 0, 0, 1)
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
@@ -97,6 +110,11 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 		mapRenderer.render()
 		mapRenderer.getBatch().begin()
 
+		for(currSoil <- soilGroup) {
+			currSoil.render()
+		}
+		soilGroup(0)
+
 		character.movementController(); //Calls to character movement every frame to enable user input
 		character.render()
 		plant.render()
@@ -128,6 +146,7 @@ object GameScreen{
 
 	val farmerTex = new Texture("walk and idle.png")
 	val allPlantsTex = new Texture("plants.png")
+	val soilTex = new Texture("TinyWonderFarm/tilemaps/summer farm tilemap.png")
 
 	private object VIEWPORT{
 		var viewportWidth:Float = 0
@@ -145,7 +164,7 @@ object GameScreen{
 		 * @param  phyWidth:Int  Physical width of the window
 		 * @param  phyHeight:Int Physical height of the window
 		 */
-		def setupViewport(width:Int, height:Int, phyWidth:Int, phyHeight:Int){
+		def setupViewport(width:Int, height:Int, phyWidth:Int, phyHeight:Int): Unit = {
 			virtualWidth = width
 			virtualHeight = height
 

@@ -33,7 +33,7 @@ class Plant(pType:Int){
         plantTex = new TextureRegion(allPlantsTex, currState, plantTexLocs(pType), 16, 16)
 	}
 
-	def render(){
+	def render(): Unit = {
 		stateTime = stateTime + Gdx.graphics.getDeltaTime()
 
         //determines if the plant is ready to change states

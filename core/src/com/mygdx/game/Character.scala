@@ -45,7 +45,7 @@ class Character{
 		}
 	}
 
-	def render(){
+	def render(): Unit = {
 		stateTime = stateTime + Gdx.graphics.getDeltaTime()
 		currentFrame = animation.getKeyFrame(stateTime, true)
 		spriteBatch.begin()

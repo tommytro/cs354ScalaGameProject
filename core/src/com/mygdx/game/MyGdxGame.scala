@@ -12,14 +12,14 @@ class MyGdxGame extends Game {
 	/**
 	 * Execute when this class is first instantiate
 	 */
-	override def create() {
+	override def create(): Unit = {
 		setScreen(GameScreen(this))
 	}
 
 	/**
 	 * Execute when this class is close
 	 */
-	override def dispose() {
+	override def dispose(): Unit = {
 
 	}
 }
