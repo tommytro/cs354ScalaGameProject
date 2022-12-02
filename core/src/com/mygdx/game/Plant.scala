@@ -12,12 +12,12 @@ import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 
 //Argument determines the type of plant
-class Plant(pType:Int){
+class Plant(pType:Int, x:Int, y:Int){
     //0 for pumpkin, 1 for berry, 2 for carrot, 3 for potato, 4 for lettuce,
     //5 for wheat, 6 for strawberry, 7 for grapefruit, 8 for flower
     val plantType = pType
-    var plantTexLocs = Array(0, 16, 32, 48, 64)
-    var plant: Rectangle = new Rectangle(-100 + 1280/2, 720/2, 0, 0)
+    var plantTexLocs = Array(0, 16, 32, 48, 64, 80, 96, 112, 128)
+    var plant: Rectangle = new Rectangle(x, y, 0, 0)
 
 	val allPlantsTex: Texture = GameScreen.allPlantsTex
     var plantTex: TextureRegion = new TextureRegion(allPlantsTex, 0, plantTexLocs(pType), 16, 16)

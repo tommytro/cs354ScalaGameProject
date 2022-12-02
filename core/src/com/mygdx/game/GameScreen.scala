@@ -21,18 +21,17 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	var animationFrames: Array[TextureRegion] = Array()
   	var character: Character = new Character();
 	
-	var plant: Plant = new Plant(1);
 	var soilGroup: Array[Soil] = Array()
-	var soilCount: Int = 10
+	var soilCount: Int = 8
 	var currSoilNum: Int = 0
-	var soil = new Soil()
-	soilGroup :+ soil
-	// while(currSoilNum < soilCount){
-	// 	var soil = new Soil()
-	// 	soil.setPos(100 + (16 * currSoilNum), 100 + (16 * currSoilNum))
-	// 	soilGroup :+ soil
-	// 	currSoilNum += 1
-	// }
+	while(currSoilNum < soilCount){
+		var soil = new Soil()
+		var soilPlant: Plant = new Plant(currSoilNum, 100 + (16 * currSoilNum), 100)
+		soil.setPlant(soilPlant)
+		soil.setPos(100 + (16 * currSoilNum), 100)
+		soilGroup :+= soil
+		currSoilNum += 1
+	}
 
 	var mapRenderer = new OrthogonalTiledMapRenderer(GameScreen.mapMgr.getCurrentMap(), MapManager.UNIT_SCALE)
 	val camera = new OrthographicCamera()
@@ -113,11 +112,9 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 		for(currSoil <- soilGroup) {
 			currSoil.render()
 		}
-		soilGroup(0)
 
 		character.movementController(); //Calls to character movement every frame to enable user input
 		character.render()
-		plant.render()
 
 		inventory.characterPosition()
 		inventory.render()

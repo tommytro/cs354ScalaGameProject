@@ -16,15 +16,19 @@ class Soil(){
 
     var soil: Rectangle = new Rectangle(-100 + 1280/2, 720/2, 0, 0)
 
-	val soilTexMap: Texture = GameScreen.allPlantsTex
-    var soilTex: TextureRegion = new TextureRegion(soilTexMap, 0, 0, 16, 16)
+	val soilTexMap: Texture = GameScreen.soilTex
+    var soilTex: TextureRegion = new TextureRegion(soilTexMap, 80, 176, 16, 16)
 
 	val spriteBatch = new SpriteBatch()
 	var stateTime = 0f
     var currState = 0 
     var unwateredRate = 5f
-
+    var plant: Plant = _
     
+    def setPlant(seed:Plant){
+        plant = seed
+    }
+
     def becomeTilled(): Unit = {
         currState+= 16
         soilTex = new TextureRegion(soilTexMap, 0, 0, 16, 16)
@@ -44,7 +48,9 @@ class Soil(){
 		stateTime = stateTime + Gdx.graphics.getDeltaTime()
 
 		spriteBatch.begin()
-		spriteBatch.draw(soilTexMap, soil.x, soil.y)
+        
+		//spriteBatch.draw(soilTex, soil.x, soil.y)
+        plant.render()
 		spriteBatch.end()
 	}
 }

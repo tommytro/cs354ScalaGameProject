@@ -34,7 +34,6 @@ class Inventory {
   //Hashmap
   var hashMap =  HashMap(0->inventoryTexture)
 
-
   //Boolean values
   var hoeTextureEquipped:Boolean = false;
   var waterCanTextureEquipped:Boolean = false;
