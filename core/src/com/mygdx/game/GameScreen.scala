@@ -111,6 +111,7 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 
 		for(currSoil <- soilGroup) {
 			currSoil.render()
+			currSoil.plant.render()
 		}
 
 		character.movementController(); //Calls to character movement every frame to enable user input

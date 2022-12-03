@@ -49,8 +49,8 @@ class Soil(){
 
 		spriteBatch.begin()
         
-		//spriteBatch.draw(soilTex, soil.x, soil.y)
-        plant.render()
+		spriteBatch.draw(soilTex, soil.x, soil.y)
+        //plant.render()
 		spriteBatch.end()
 	}
 }
