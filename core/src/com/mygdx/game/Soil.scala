@@ -27,6 +27,7 @@ class Soil(){
     
     def setPlant(seed:Plant){
         plant = seed
+        
     }
 
     def becomeTilled(): Unit = {
@@ -49,7 +50,7 @@ class Soil(){
 
 		spriteBatch.begin()
         
-		spriteBatch.draw(soilTex, soil.x, soil.y)
+		spriteBatch.draw(soilTex, soil.x, soil.y, 48, 48)
         //plant.render()
 		spriteBatch.end()
 	}

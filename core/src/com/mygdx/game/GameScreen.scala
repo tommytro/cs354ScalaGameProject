@@ -26,9 +26,9 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	var currSoilNum: Int = 0
 	while(currSoilNum < soilCount){
 		var soil = new Soil()
-		var soilPlant: Plant = new Plant(currSoilNum, 100 + (16 * currSoilNum), 100)
+		var soilPlant: Plant = new Plant(currSoilNum, 300 + (48 * currSoilNum), 150)
+		soil.setPos(300 + (48 * currSoilNum), 150)
 		soil.setPlant(soilPlant)
-		soil.setPos(100 + (16 * currSoilNum), 100)
 		soilGroup :+= soil
 		currSoilNum += 1
 	}

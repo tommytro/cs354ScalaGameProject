@@ -43,7 +43,7 @@ class Plant(pType:Int, x:Int, y:Int){
         }
 
 		spriteBatch.begin()
-		spriteBatch.draw(plantTex, plant.x, plant.y)
+		spriteBatch.draw(plantTex, plant.x, plant.y, 48, 48)
 		spriteBatch.end()
 	}
 }

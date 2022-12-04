@@ -44,7 +44,7 @@ class Character{
 		stateTime = stateTime + Gdx.graphics.getDeltaTime()
 		currentFrame = animation.getKeyFrame(stateTime, true)
 		spriteBatch.begin()
-		spriteBatch.draw(currentFrame, farmer.x, farmer.y)
+		spriteBatch.draw(currentFrame, farmer.x, farmer.y, 64, 64)
 		spriteBatch.end()
 	}
 }
