@@ -109,9 +109,13 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 		mapRenderer.render()
 		mapRenderer.getBatch().begin()
 
-		for(currSoil <- soilGroup) {
-			currSoil.render()
-			currSoil.plant.render()
+		if(curr_pos == bot_left){
+
+			
+			for(currSoil <- soilGroup) {
+				currSoil.render()
+				currSoil.plant.render()
+			}
 		}
 
 		character.movementController() //Calls to character movement every frame to enable user input

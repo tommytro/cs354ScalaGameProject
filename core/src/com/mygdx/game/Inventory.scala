@@ -22,8 +22,8 @@ class Inventory {
   //Basic instance variables
   var batch = new SpriteBatch()
   var character = new Character() 
-  var selectedItem = null
-
+  var items = Array("hoe", "can", "seed1", "seed2", "seed3", "seed4", "seed5", "seed6", "seed7")
+  var selectedItem = new String("hoe")
 
   //Textures
   val inventoryTexture = new Texture("Inventory/inv1.png")
@@ -39,17 +39,16 @@ class Inventory {
   val hoeTexture = new Texture("Inventory/pxlHoe.png")
   val waterCanTexture = new Texture("Inventory/pxlCan.png")
   val seedTexture = new Texture("Inventory/pxlCan.png")
-  val seed1 = new Texture("Inventory/seed1.png")
-  val seed2 = new Texture("Inventory/seed2.png")
-  val seed3 = new Texture("Inventory/seed3.png")
-  val seed4 = new Texture("Inventory/seed4.png")
-  val seed5 = new Texture("Inventory/seed5.png")
-  val seed6 = new Texture("Inventory/seed6.png")
-  val seed7 = new Texture("Inventory/seed7.png")
-  val seed8 = new Texture("Inventory/seed8.png")
-  val seed9 = new Texture("Inventory/seed9.png")
+  val seed0 = new Texture("Inventory/seed1.png") //shifted to match plant.scala
+  val seed1 = new Texture("Inventory/seed2.png")
+  val seed2 = new Texture("Inventory/seed3.png")
+  val seed3 = new Texture("Inventory/seed4.png")
+  val seed4 = new Texture("Inventory/seed5.png")
+  val seed5 = new Texture("Inventory/seed6.png")
+  val seed6 = new Texture("Inventory/seed7.png")
+  val seed7 = new Texture("Inventory/seed8.png")
+  val seed8 = new Texture("Inventory/seed9.png")
   
-
 
   //Hashmap
   var hashMap =  HashMap(0->inventoryTexture)
@@ -58,7 +57,7 @@ class Inventory {
   //var hoeTextureEquipped:Boolean = true;
   //var waterCanTextureEquipped:Boolean = true;
   //var seedTextureEquipped:Boolean = true;
-  var showInventory:Boolean = true;
+  var showInventory:Boolean = true; //always on
 
 
 def inventoryPosition(): Unit ={
@@ -67,13 +66,13 @@ def inventoryPosition(): Unit ={
 
   hashMap = hashMap + (1 -> hoeTexture)
   hashMap = hashMap + (2 -> waterCanTexture)
-  hashMap = hashMap + (3 -> seed1)
-  hashMap = hashMap + (4 -> seed2)
-  hashMap = hashMap + (5 -> seed3)
-  hashMap = hashMap + (6 -> seed4)
-  hashMap = hashMap + (7 -> seed5)
-  hashMap = hashMap + (8 -> seed6)
-  hashMap = hashMap + (9 -> seed7)
+  hashMap = hashMap + (3 -> seed0)
+  hashMap = hashMap + (4 -> seed1)
+  hashMap = hashMap + (5 -> seed2)
+  hashMap = hashMap + (6 -> seed3)
+  hashMap = hashMap + (7 -> seed4)
+  hashMap = hashMap + (8 -> seed5)
+  hashMap = hashMap + (9 -> seed6)
   //hashMap = hashMap + (10 -> seed8)
 
   if (Gdx.input.isKeyJustPressed(Input.Keys.I)) {
@@ -87,47 +86,47 @@ def inventoryPosition(): Unit ={
 
   if(Gdx.input.isKeyPressed(Input.Keys.NUM_1)){
     //hashMap.remove(1)
-    selectedItem = null 
+    selectedItem = items(0)
     hashMap = hashMap + (0 -> inv1)
   }
   if (Gdx.input.isKeyPressed(Input.Keys.NUM_2)) {
     //hashMap.remove(2)
-    selectedItem = null
+    selectedItem = items(1)
     hashMap = hashMap + (0 -> inv2)
   }
   if (Gdx.input.isKeyPressed(Input.Keys.NUM_3)) {
     //hashMap.remove(3)
-    selectedItem = null
+    selectedItem = items(2)
     hashMap = hashMap + (0 -> inv3)
   }
     if(Gdx.input.isKeyPressed(Input.Keys.NUM_4)){
     //hashMap.remove(1)
-    selectedItem = null
+    selectedItem = items(3)
     hashMap = hashMap + (0 -> inv4)
   }
   if (Gdx.input.isKeyPressed(Input.Keys.NUM_5)) {
     //hashMap.remove(2)
-    selectedItem = null
+    selectedItem = items(4)
     hashMap = hashMap + (0 -> inv5)
   }
   if (Gdx.input.isKeyPressed(Input.Keys.NUM_6)) {
     //hashMap.remove(3)
-    selectedItem = null
+    selectedItem = items(5)
     hashMap = hashMap + (0 -> inv6)
   }
   if (Gdx.input.isKeyPressed(Input.Keys.NUM_7)) {
     //hashMap.remove(2)
-    selectedItem = null
+    selectedItem = items(6)
     hashMap = hashMap + (0 -> inv7)
   }
   if (Gdx.input.isKeyPressed(Input.Keys.NUM_8)) {
     //hashMap.remove(3)
-    selectedItem = null
+    selectedItem = items(7)
     hashMap = hashMap + (0 -> inv8)
   }
   if (Gdx.input.isKeyPressed(Input.Keys.NUM_9)) {
     //hashMap.remove(3)
-    selectedItem = null
+    selectedItem = items(8)
     hashMap = hashMap + (0 -> inv9)
   }
   // if (Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
@@ -156,10 +155,8 @@ def inventoryPosition(): Unit ={
     //   batch.draw(waterCanTexture,350,350)
     // }
 
-    if(showInventory){
-      hashMap.foreach {
-        case (key, value) => batch.draw(value, (key * 36) - 36, 0)
-      }
+    hashMap.foreach {
+      case (key, value) => batch.draw(value, (key * 36) - 36, 0)
     }
 
     batch.end()
