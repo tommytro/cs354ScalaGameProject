@@ -20,7 +20,7 @@ class Plant(pType:Int, x:Int, y:Int){
     var plant: Rectangle = new Rectangle(x, y, 0, 0)
 
 	val allPlantsTex: Texture = GameScreen.allPlantsTex
-    var plantTex: TextureRegion = new TextureRegion(allPlantsTex, 0, plantTexLocs(pType), 16, 16)
+    var plantTex: TextureRegion = new TextureRegion(allPlantsTex, 0, plantTexLocs(plantType), 16, 16)
 
 	val spriteBatch = new SpriteBatch()
 	var stateTime = 0f
@@ -30,8 +30,12 @@ class Plant(pType:Int, x:Int, y:Int){
     //Increments the plant growth to the next stage
     def changeStage(): Unit = {
         currState+= 16
-        plantTex = new TextureRegion(allPlantsTex, currState, plantTexLocs(pType), 16, 16)
+        plantTex = new TextureRegion(allPlantsTex, currState, plantTexLocs(plantType), 16, 16)
 	}
+
+    def changeType(pType:Int): Unit = {
+        plantType = pType
+    }
 
 	def render(): Unit = {
 		stateTime = stateTime + Gdx.graphics.getDeltaTime()
