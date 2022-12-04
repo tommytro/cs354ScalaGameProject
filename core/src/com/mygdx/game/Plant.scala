@@ -34,7 +34,7 @@ class Plant(pType:Int, x:Int, y:Int){
 	}
 
     def changeType(pType:Int): Unit = {
-        plantType = pType
+        //plantType = pType
     }
 
 	def render(): Unit = {
