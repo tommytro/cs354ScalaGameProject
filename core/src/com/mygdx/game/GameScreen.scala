@@ -41,7 +41,7 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	var top_right = Array(42,24,0)
 	var bot_left = Array(14,8,0)
 	var bot_right = Array(42,8,0)
-	var next_pos = top_left //default to top_left
+	var next_pos = top_right //default to top_right
 	var curr_pos = next_pos 
 
 	override def show(): Unit = {
@@ -114,7 +114,7 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 			currSoil.plant.render()
 		}
 
-		character.movementController(); //Calls to character movement every frame to enable user input
+		character.movementController() //Calls to character movement every frame to enable user input
 		character.render()
 
 		inventory.characterPosition()
@@ -156,11 +156,11 @@ object GameScreen{
 		var aspectRatio:Float = 0
 
 		/**
-		 * Setup Viewport of the game
-		 * @param  width:Int     Expected width of viewport
-		 * @param  height:Int    Expected height of viewport
-		 * @param  phyWidth:Int  Physical width of the window
-		 * @param  phyHeight:Int Physical height of the window
+		 * Setup Viewport
+		 * @param  width:Int     Expected width
+		 * @param  height:Int    Expected height
+		 * @param  phyWidth:Int  Physical width
+		 * @param  phyHeight:Int Physical height
 		 */
 		def setupViewport(width:Int, height:Int, phyWidth:Int, phyHeight:Int): Unit = {
 			virtualWidth = width

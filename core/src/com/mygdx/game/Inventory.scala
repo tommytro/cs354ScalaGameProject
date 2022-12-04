@@ -20,6 +20,7 @@ class Inventory {
   //Basic instance variables
   var batch = new SpriteBatch()
   var character = new Character() 
+  var selectedItem = null
 
 
   //Textures
@@ -28,64 +29,72 @@ class Inventory {
   val waterCanTexture = new Texture("Inventory/wateringcan.png")
   val seedTexture = new Texture("Inventory/seeds.png")
 
-
-
-
   //Hashmap
   var hashMap =  HashMap(0->inventoryTexture)
 
   //Boolean values
-  var hoeTextureEquipped:Boolean = false;
-  var waterCanTextureEquipped:Boolean = false;
-  var seedTextureEquipped:Boolean = false;
-  var showInventory:Boolean = false;
+  var hoeTextureEquipped:Boolean = true;
+  var waterCanTextureEquipped:Boolean = true;
+  var seedTextureEquipped:Boolean = true;
+  var showInventory:Boolean = true;
 
 
 def characterPosition(): Unit ={
 
   character.movementController()
 
-  //println(character.farmer.x)
-  //println(character.farmer.y)
-
-  if (character.farmer.x > 380 && character.farmer.x < 425 && character.farmer.y > 405 && character.farmer.y < 425 && !hoeTextureEquipped) {
+  //if (character.farmer.x > 380 && character.farmer.x < 425 && character.farmer.y > 405 && character.farmer.y < 425 && !hoeTextureEquipped) {
     hashMap = hashMap + (1 -> hoeTexture)
-    hoeTextureEquipped=true
-  }
+   // hoeTextureEquipped=true
+  //}
 
-  if(character.farmer.x > 330 && character.farmer.x < 370 && character.farmer.y > 330 && character.farmer.y < 370 && !waterCanTextureEquipped){
+  //if(character.farmer.x > 330 && character.farmer.x < 370 && character.farmer.y > 330 && character.farmer.y < 370 && !waterCanTextureEquipped){
     hashMap = hashMap + (2 -> waterCanTexture)
-    waterCanTextureEquipped=true
-  }
+    //waterCanTextureEquipped=true
+  //}
 
-  if(character.farmer.x > 480 && character.farmer.x < 525 && character.farmer.y > 180 && character.farmer.y < 240 && !seedTextureEquipped){
+  //if(character.farmer.x > 480 && character.farmer.x < 525 && character.farmer.y > 180 && character.farmer.y < 240 && !seedTextureEquipped){
     hashMap = hashMap + (3 -> seedTexture)
-    seedTextureEquipped=true
-  }
+    //seedTextureEquipped=true
+  //}
 
-  if (Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_0)) {
+  if (Gdx.input.isKeyJustPressed(Input.Keys.I)) {
     if(!showInventory){
       showInventory=true
     } else
       {
-        showInventory=false
+        showInventory=true
       }
   }
 
-  if(Gdx.input.isKeyPressed(Input.Keys.NUMPAD_1)){
-    hashMap.remove(1)
-    hoeTextureEquipped=false
+  if(Gdx.input.isKeyPressed(Input.Keys.NUM_1)){
+    //hashMap.remove(1)
+  }
+  if (Gdx.input.isKeyPressed(Input.Keys.NUM_2)) {
+    //hashMap.remove(2)
+  }
+  if (Gdx.input.isKeyPressed(Input.Keys.NUM_3)) {
+    //hashMap.remove(3)
+  }
+    if(Gdx.input.isKeyPressed(Input.Keys.NUM_4)){
+    //hashMap.remove(1)
+  }
+  if (Gdx.input.isKeyPressed(Input.Keys.NUM_5)) {
+    //hashMap.remove(2)
+  }
+  if (Gdx.input.isKeyPressed(Input.Keys.NUM_6)) {
+    //hashMap.remove(3)
+  }
+  if (Gdx.input.isKeyPressed(Input.Keys.NUM_7)) {
+    //hashMap.remove(2)
+  }
+  if (Gdx.input.isKeyPressed(Input.Keys.NUM_8)) {
+    //hashMap.remove(3)
+  }
+  if (Gdx.input.isKeyPressed(Input.Keys.NUM_9)) {
+    //hashMap.remove(3)
   }
 
-  if (Gdx.input.isKeyPressed(Input.Keys.NUMPAD_2)) {
-    hashMap.remove(2)
-    waterCanTextureEquipped = false
-  }
-
-  if (Gdx.input.isKeyPressed(Input.Keys.NUMPAD_3)) {
-    hashMap.remove(3)
-    seedTextureEquipped = false
-  }
 
 
 
@@ -97,7 +106,7 @@ def characterPosition(): Unit ={
 
     if(!hoeTextureEquipped)
     {
-      batch.draw(hoeTexture, 400, 400)
+      batch.draw(hoeTexture, 200, 100)
     }
 
     if(!seedTextureEquipped)

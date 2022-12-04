@@ -10,14 +10,13 @@ import com.badlogic.gdx.utils.ScreenUtils
 import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.graphics.g2d.TextureRegion
-// import com.mygdx.game.MyGdxGame
 
 class Character{
     
     var moveSpeed : Float = 4
     var attackSpeed: Float = 4
     var useSpeed: Float = 4
-    var farmer: Rectangle = new Rectangle(1280/2, 720/2, 0, 0)
+    var farmer: Rectangle = new Rectangle(1280/2, 720/3, 0, 0)
 	val farmerTex: Texture = GameScreen.farmerTex
 	var tmpFrames: Array[Array[TextureRegion]] = TextureRegion.split(farmerTex, farmerTex.getWidth() / 8, farmerTex.getHeight() / 3)
 	var animation = new Animation(.086f, tmpFrames(1): _*)
@@ -28,20 +27,16 @@ class Character{
     def movementController(): Unit = {
 
         if(Gdx.input.isKeyPressed(Input.Keys.W) || Gdx.input.isKeyPressed(Input.Keys.UP)){
-			farmer.y = farmer.y + 100 * Gdx.graphics.getDeltaTime();
-			//if(farmer.y < 0) {farmer.y = 0}
+			farmer.y = farmer.y + 175 * Gdx.graphics.getDeltaTime();
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.A) || Gdx.input.isKeyPressed(Input.Keys.LEFT)){
-            farmer.x = farmer.x - 100 * Gdx.graphics.getDeltaTime();
-			//if(farmer.x < 0) {farmer.x = 0}
+            farmer.x = farmer.x - 175 * Gdx.graphics.getDeltaTime();
         }
 		if(Gdx.input.isKeyPressed(Input.Keys.S) || Gdx.input.isKeyPressed(Input.Keys.DOWN)){
-			farmer.y = farmer.y - 100 * Gdx.graphics.getDeltaTime();
-			//if(farmer.y > 720) {farmer.y = 720}
+			farmer.y = farmer.y - 175 * Gdx.graphics.getDeltaTime();
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.D) || Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
-			farmer.x = farmer.x + 100 * Gdx.graphics.getDeltaTime();
-			//if(farmer.x > 1280) { farmer.x = 1280}
+			farmer.x = farmer.x + 175 * Gdx.graphics.getDeltaTime();
 		}
 	}
 
