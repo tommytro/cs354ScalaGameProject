@@ -143,6 +143,7 @@ object GameScreen{
 	var mapMgr:MapManager = MapManager()
 
 	val farmerTex = new Texture("walk and idle.png")
+	
 	val allPlantsTex = new Texture("plants.png")
 	val soilTex = new Texture("TinyWonderFarm/tilemaps/summer farm tilemap.png")
 

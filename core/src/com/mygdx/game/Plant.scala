@@ -15,7 +15,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion
 class Plant(pType:Int, x:Int, y:Int){
     //0 for pumpkin, 1 for berry, 2 for carrot, 3 for potato, 4 for lettuce,
     //5 for wheat, 6 for strawberry, 7 for grapefruit, 8 for flower
-    val plantType = pType
+    var plantType = pType
     var plantTexLocs = Array(0, 16, 32, 48, 64, 80, 96, 112, 128)
     var plant: Rectangle = new Rectangle(x, y, 0, 0)
 
@@ -35,6 +35,10 @@ class Plant(pType:Int, x:Int, y:Int){
 
     def changeType(pType:Int): Unit = {
         plantType = pType
+    }
+    
+    def changePos(x:Int, y:Int): Unit = {
+        plant.x = x
     }
 
 	def render(): Unit = {
