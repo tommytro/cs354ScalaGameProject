@@ -117,7 +117,7 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 		character.movementController() //Calls to character movement every frame to enable user input
 		character.render()
 
-		inventory.characterPosition()
+		inventory.inventoryPosition()
 		inventory.render()
 
 		mapRenderer.getBatch().end()

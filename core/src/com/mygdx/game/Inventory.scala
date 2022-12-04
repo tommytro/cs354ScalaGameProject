@@ -14,6 +14,8 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport
 import com.mygdx.game.MyGdxGame
 
 import scala.collection.mutable.HashMap
+import com.mygdx.game.Plant
+import com.mygdx.game.GameScreen
 
 
 class Inventory {
@@ -24,39 +26,55 @@ class Inventory {
 
 
   //Textures
-  val hoeTexture = new Texture("Inventory/hoe.png")
-  val inventoryTexture = new Texture("Inventory/inventory.png")
-  val waterCanTexture = new Texture("Inventory/wateringcan.png")
-  val seedTexture = new Texture("Inventory/seeds.png")
+  val inventoryTexture = new Texture("Inventory/inv1.png")
+  val inv1 = new Texture("Inventory/inv1.png")
+  val inv2 = new Texture("Inventory/inv2.png")
+  val inv3 = new Texture("Inventory/inv3.png")
+  val inv4 = new Texture("Inventory/inv4.png")
+  val inv5 = new Texture("Inventory/inv5.png")
+  val inv6 = new Texture("Inventory/inv6.png")
+  val inv7 = new Texture("Inventory/inv7.png")
+  val inv8 = new Texture("Inventory/inv8.png")
+  val inv9 = new Texture("Inventory/inv9.png")
+  val hoeTexture = new Texture("Inventory/pxlHoe.png")
+  val waterCanTexture = new Texture("Inventory/pxlCan.png")
+  val seedTexture = new Texture("Inventory/pxlCan.png")
+  val seed1 = new Texture("Inventory/seed1.png")
+  val seed2 = new Texture("Inventory/seed2.png")
+  val seed3 = new Texture("Inventory/seed3.png")
+  val seed4 = new Texture("Inventory/seed4.png")
+  val seed5 = new Texture("Inventory/seed5.png")
+  val seed6 = new Texture("Inventory/seed6.png")
+  val seed7 = new Texture("Inventory/seed7.png")
+  val seed8 = new Texture("Inventory/seed8.png")
+  val seed9 = new Texture("Inventory/seed9.png")
+  
+
 
   //Hashmap
   var hashMap =  HashMap(0->inventoryTexture)
 
   //Boolean values
-  var hoeTextureEquipped:Boolean = true;
-  var waterCanTextureEquipped:Boolean = true;
-  var seedTextureEquipped:Boolean = true;
+  //var hoeTextureEquipped:Boolean = true;
+  //var waterCanTextureEquipped:Boolean = true;
+  //var seedTextureEquipped:Boolean = true;
   var showInventory:Boolean = true;
 
 
-def characterPosition(): Unit ={
+def inventoryPosition(): Unit ={
 
-  character.movementController()
+  //character.movementController()
 
-  //if (character.farmer.x > 380 && character.farmer.x < 425 && character.farmer.y > 405 && character.farmer.y < 425 && !hoeTextureEquipped) {
-    hashMap = hashMap + (1 -> hoeTexture)
-   // hoeTextureEquipped=true
-  //}
-
-  //if(character.farmer.x > 330 && character.farmer.x < 370 && character.farmer.y > 330 && character.farmer.y < 370 && !waterCanTextureEquipped){
-    hashMap = hashMap + (2 -> waterCanTexture)
-    //waterCanTextureEquipped=true
-  //}
-
-  //if(character.farmer.x > 480 && character.farmer.x < 525 && character.farmer.y > 180 && character.farmer.y < 240 && !seedTextureEquipped){
-    hashMap = hashMap + (3 -> seedTexture)
-    //seedTextureEquipped=true
-  //}
+  hashMap = hashMap + (1 -> hoeTexture)
+  hashMap = hashMap + (2 -> waterCanTexture)
+  hashMap = hashMap + (3 -> seed1)
+  hashMap = hashMap + (4 -> seed2)
+  hashMap = hashMap + (5 -> seed3)
+  hashMap = hashMap + (6 -> seed4)
+  hashMap = hashMap + (7 -> seed5)
+  hashMap = hashMap + (8 -> seed6)
+  hashMap = hashMap + (9 -> seed7)
+  //hashMap = hashMap + (10 -> seed8)
 
   if (Gdx.input.isKeyJustPressed(Input.Keys.I)) {
     if(!showInventory){
@@ -69,34 +87,53 @@ def characterPosition(): Unit ={
 
   if(Gdx.input.isKeyPressed(Input.Keys.NUM_1)){
     //hashMap.remove(1)
+    selectedItem = null 
+    hashMap = hashMap + (0 -> inv1)
   }
   if (Gdx.input.isKeyPressed(Input.Keys.NUM_2)) {
     //hashMap.remove(2)
+    selectedItem = null
+    hashMap = hashMap + (0 -> inv2)
   }
   if (Gdx.input.isKeyPressed(Input.Keys.NUM_3)) {
     //hashMap.remove(3)
+    selectedItem = null
+    hashMap = hashMap + (0 -> inv3)
   }
     if(Gdx.input.isKeyPressed(Input.Keys.NUM_4)){
     //hashMap.remove(1)
+    selectedItem = null
+    hashMap = hashMap + (0 -> inv4)
   }
   if (Gdx.input.isKeyPressed(Input.Keys.NUM_5)) {
     //hashMap.remove(2)
+    selectedItem = null
+    hashMap = hashMap + (0 -> inv5)
   }
   if (Gdx.input.isKeyPressed(Input.Keys.NUM_6)) {
     //hashMap.remove(3)
+    selectedItem = null
+    hashMap = hashMap + (0 -> inv6)
   }
   if (Gdx.input.isKeyPressed(Input.Keys.NUM_7)) {
     //hashMap.remove(2)
+    selectedItem = null
+    hashMap = hashMap + (0 -> inv7)
   }
   if (Gdx.input.isKeyPressed(Input.Keys.NUM_8)) {
     //hashMap.remove(3)
+    selectedItem = null
+    hashMap = hashMap + (0 -> inv8)
   }
   if (Gdx.input.isKeyPressed(Input.Keys.NUM_9)) {
     //hashMap.remove(3)
+    selectedItem = null
+    hashMap = hashMap + (0 -> inv9)
   }
-
-
-
+  // if (Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
+  //   //hashMap.remove(3)
+  //   selectedItem = null
+  // }
 
 }
 
@@ -104,20 +141,20 @@ def characterPosition(): Unit ={
   def render(): Unit = {
     batch.begin()
 
-    if(!hoeTextureEquipped)
-    {
-      batch.draw(hoeTexture, 200, 100)
-    }
+    // if(!hoeTextureEquipped)
+    // {
+    //   batch.draw(hoeTexture, 200, 100)
+    // }
 
-    if(!seedTextureEquipped)
-    {
-      batch.draw(seedTexture,500,200)
-    }
+    // if(!seedTextureEquipped)
+    // {
+    //   batch.draw(seedTexture,500,200)
+    // }
 
-    if(!waterCanTextureEquipped)
-    {
-      batch.draw(waterCanTexture,350,350)
-    }
+    // if(!waterCanTextureEquipped)
+    // {
+    //   batch.draw(waterCanTexture,350,350)
+    // }
 
     if(showInventory){
       hashMap.foreach {
