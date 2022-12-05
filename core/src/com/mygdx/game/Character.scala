@@ -18,10 +18,10 @@ class Character{
     var useSpeed: Float = 4
     var farmer: Rectangle = new Rectangle(1280/2, 720/3, 0, 0)
 	val farmerTex: Texture = GameScreen.farmerTex
-	val idleLeftTex = new Texture("idle_R (1).png")
-	val idleRightTex = new Texture("idle_L (1).png")
-	var idleRightFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleRightTex, idleRightTex.getWidth() / 2, idleRightTex.getHeight())
-	var idleLeftFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleLeftTex, idleLeftTex.getWidth() / 2, idleLeftTex.getHeight())
+	val idleRightTex = new Texture("idle_R (1).png")
+	val idleLeftTex = new Texture("idle_L (1).png")
+	var idleRightFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleRightTex, idleRightTex.getWidth() / 2, idleRightTex.getHeight() / 1)
+	var idleLeftFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleLeftTex, idleLeftTex.getWidth() / 2, idleLeftTex.getHeight() / 1)
 	var walkFrames: Array[Array[TextureRegion]] = TextureRegion.split(farmerTex, farmerTex.getWidth() / 8, farmerTex.getHeight() / 3)
 	var idleAnimationLeft = new Animation(.086f, idleLeftFrames(0): _*)
 	var idleAnimationRight = new Animation(.086f, idleRightFrames(0): _*)
@@ -31,52 +31,28 @@ class Character{
 	val spriteBatch = new SpriteBatch()
 	var currentFrame: TextureRegion = null
 	var stateTime = 0f
-	var facingRight = false
 
     def movementController(): Unit = {
 
-		if(facingRight == false){
-			currAnimation = idleAnimationLeft
-			}else if(facingRight == true){
-			currAnimation = idleAnimationRight
-			}
-
         if(Gdx.input.isKeyPressed(Input.Keys.W) || Gdx.input.isKeyPressed(Input.Keys.UP)){
-
-			if(facingRight == false){
-			currAnimation = moveLeftAnimation
-			}else if(facingRight == true){
-			currAnimation = moveRightAnimation
-			}
-
 			farmer.y = farmer.y + 175 * Gdx.graphics.getDeltaTime();
-
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.A) || Gdx.input.isKeyPressed(Input.Keys.LEFT)){
 			facingRight = false
-			currAnimation = moveLeftAnimation
             farmer.x = farmer.x - 175 * Gdx.graphics.getDeltaTime();
         }
 		if(Gdx.input.isKeyPressed(Input.Keys.S) || Gdx.input.isKeyPressed(Input.Keys.DOWN)){
-
-			if(facingRight == false){
-			currAnimation = moveLeftAnimation
-			}else if(facingRight == true){
-			currAnimation = moveRightAnimation
-			}
-
 			farmer.y = farmer.y - 175 * Gdx.graphics.getDeltaTime();
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.D) || Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
 			facingRight = true
-			currAnimation = moveRightAnimation
 			farmer.x = farmer.x + 175 * Gdx.graphics.getDeltaTime();
 		}
 	}
 
 	def render(): Unit = {
 		stateTime = stateTime + Gdx.graphics.getDeltaTime()
-		currentFrame = currAnimation.getKeyFrame(stateTime, true)
+		currentFrame = animation.getKeyFrame(stateTime, true)
 		spriteBatch.begin()
 		spriteBatch.draw(currentFrame, farmer.x, farmer.y, 64, 64)
 		spriteBatch.end()
