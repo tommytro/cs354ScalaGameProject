@@ -27,7 +27,7 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	var chicken1: Chicken = new Chicken(1280/2,720/3);
 	var chicken2: Chicken = new Chicken(1280/3,720/3);
 	
-	var soilGroup: Array[Soil] = Array() /////////////////////////////////////////////////////////////////////////////////////////////
+	var soilGroup: Array[Soil] = Array() 
 	var soilCount: Int = 1
 	var currSoilNum: Int = 0
 	// while(currSoilNum < soilCount){
@@ -110,9 +110,9 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 		character.farmer.y = 0
 		}
 
-		randInt = rand.nextInt(100)
+		randInt = rand.nextInt(10000)
 		chicken1.setRand(randInt)
-		randInt = rand.nextInt(100)
+		randInt = rand.nextInt(10000)
 		chicken2.setRand(randInt)
 
 		camera.position.set(next_pos(0),next_pos(1),next_pos(2)) // update camera to next_pos

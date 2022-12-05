@@ -39,23 +39,20 @@ class Chicken(x:Float, y:Float){
     }
 
 	def render(): Unit = {
-		if(rand < 10){
-
+		if(rand < 500){
 			if(facingRight == false){
 			currAnimation = moveLeftAnimation
 			}else if(facingRight == true){
 			currAnimation = moveRightAnimation
 			}
-
-			farmer.y = farmer.y + 175 * Gdx.graphics.getDeltaTime();
-
+			farmer.y = farmer.y + 175 * Gdx.graphics.getDeltaTime()
 		}
-		if(rand > 40 && rand < 50){
+		else if(rand > 4500 && rand < 5000){
 			facingRight = false
 			currAnimation = moveLeftAnimation
             farmer.x = farmer.x - 175 * Gdx.graphics.getDeltaTime();
         }
-		if(rand > 60 && rand < 70){
+		else if(rand > 6500 && rand < 7000){
 
 			if(facingRight == false){
 			currAnimation = moveLeftAnimation
@@ -65,10 +62,17 @@ class Chicken(x:Float, y:Float){
 
 			farmer.y = farmer.y - 175 * Gdx.graphics.getDeltaTime();
 		}
-		if(rand > 90){
+		else if(rand > 9500){
 			facingRight = true
 			currAnimation = moveRightAnimation
 			farmer.x = farmer.x + 175 * Gdx.graphics.getDeltaTime();
+		}
+		else{
+			if(facingRight == false){
+				currAnimation = idleAnimationLeft
+			}else if(facingRight == true){
+				currAnimation = idleAnimationRight
+			}
 		}
 		stateTime = stateTime + Gdx.graphics.getDeltaTime()
 		currentFrame = currAnimation.getKeyFrame(stateTime, true)
