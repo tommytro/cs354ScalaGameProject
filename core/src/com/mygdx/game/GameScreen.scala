@@ -21,8 +21,8 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	var animationFrames: Array[TextureRegion] = Array()
   	var character: Character = new Character();
 	
-	var soilGroup: Array[Soil] = Array()
-	var soilCount: Int = 8
+	var soilGroup: Array[Soil] = Array() /////////////////////////////////////////////////////////////////////////////////////////////
+	var soilCount: Int = 1
 	var currSoilNum: Int = 0
 	while(currSoilNum < soilCount){
 		var soil = new Soil()
@@ -110,8 +110,14 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 		mapRenderer.getBatch().begin()
 
 		if(curr_pos == bot_left){
-
 			
+			if(character.farmer.y >= 48 && character.farmer.y <= 480){
+				if(character.farmer.x >= 240 && character.farmer.x <= 960){
+					//place at nearest square
+					
+				}
+			}
+
 			for(currSoil <- soilGroup) {
 				currSoil.render()
 				currSoil.plant.render()
