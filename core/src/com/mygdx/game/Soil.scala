@@ -27,7 +27,6 @@ class Soil(){
     
     def setPlant(seed:Plant){
         plant = seed
-        
     }
 
     def becomeTilled(): Unit = {
