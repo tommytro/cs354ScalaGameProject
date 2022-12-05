@@ -10,17 +10,22 @@ import com.badlogic.gdx.math.Rectangle
 
 import scala.collection.JavaConverters._
 import scala.collection.mutable.ListBuffer
+import scala.util.Random
 
 import com.mygdx.game.MyGdxGame
 import com.mygdx.game.MapManager
 import com.mygdx.game.Character
+import com.mygdx.game.Chicken
 import com.mygdx.game.Plant
 import com.mygdx.game.Inventory
+
 
 class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	
 	var animationFrames: Array[TextureRegion] = Array()
   	var character: Character = new Character();
+	var chicken1: Chicken = new Chicken(1280/2,720/3);
+	var chicken2: Chicken = new Chicken(1280/3,720/3);
 	
 	var soilGroup: Array[Soil] = Array() /////////////////////////////////////////////////////////////////////////////////////////////
 	var soilCount: Int = 1
@@ -38,6 +43,8 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	val camera = new OrthographicCamera()
 	val spriteBatch = new SpriteBatch()
 	var inventory: Inventory = new Inventory()
+	val rand = new Random()
+	var randInt = 0
 	var top_left = Array(14,24,0)
 	var top_right = Array(42,24,0)
 	var bot_left = Array(14,8,0)
@@ -103,6 +110,11 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 		character.farmer.y = 0
 		}
 
+		randInt = rand.nextInt(100)
+		chicken1.setRand(randInt)
+		randInt = rand.nextInt(100)
+		chicken2.setRand(randInt)
+
 		camera.position.set(next_pos(0),next_pos(1),next_pos(2)) // update camera to next_pos
 		camera.update 
 
@@ -110,11 +122,11 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 		mapRenderer.render()
 		mapRenderer.getBatch().begin()
 
-		if(curr_pos == bot_left){
+		if(curr_pos == bot_left){ //only render plants when on garden screen
 			if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){ //if space pressed
 				if(character.farmer.y >= 220 && character.farmer.y <= 650){ //check inside dirt patch y
 					if(character.farmer.x >= 240 && character.farmer.x <= 960){ //check inside dirt patch x
-						if(inventory.selectedItem == inventory.items(2)){ //seed1
+						if(inventory.selectedItem == inventory.items(2)){ //seed1n
 							//find a way to place at nearest square
 							var soil = new Soil()
 							var soilPlant: Plant = new Plant(0, character.farmer.x, character.farmer.y)
@@ -181,6 +193,11 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 				currSoil.render()
 				currSoil.plant.render()
 			}
+		}
+
+		if(curr_pos == top_left){ //only render animals on top left
+			chicken1.render()
+			chicken2.render()
 		}
 
 		character.movementController() //Calls to character movement every frame to enable user input

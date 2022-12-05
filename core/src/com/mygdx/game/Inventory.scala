@@ -38,7 +38,6 @@ class Inventory {
   val inv9 = new Texture("Inventory/inv9.png")
   val hoeTexture = new Texture("Inventory/pxlHoe.png")
   val waterCanTexture = new Texture("Inventory/pxlCan.png")
-  val seedTexture = new Texture("Inventory/pxlCan.png")
   val seed0 = new Texture("Inventory/seed1.png") //shifted to match plant.scala
   val seed1 = new Texture("Inventory/seed2.png")
   val seed2 = new Texture("Inventory/seed3.png")
@@ -75,14 +74,14 @@ def inventoryPosition(): Unit ={
   hashMap = hashMap + (9 -> seed6)
   //hashMap = hashMap + (10 -> seed8)
 
-  if (Gdx.input.isKeyJustPressed(Input.Keys.I)) {
-    if(!showInventory){
-      showInventory=true
-    } else
-      {
-        showInventory=true
-      }
-  }
+  // if (Gdx.input.isKeyJustPressed(Input.Keys.I)) {
+  //   if(!showInventory){
+  //     showInventory=true
+  //   } else
+  //     {
+  //       showInventory=true
+  //     }
+  // }
 
   if(Gdx.input.isKeyPressed(Input.Keys.NUM_1)){
     //hashMap.remove(1)
