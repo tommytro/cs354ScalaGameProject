@@ -18,10 +18,10 @@ class Character{
     var useSpeed: Float = 4
     var farmer: Rectangle = new Rectangle(1280/2, 720/3, 0, 0)
 	val farmerTex: Texture = GameScreen.farmerTex
-	val idleRightTex = new Texture("idle_R (1).png")
-	val idleLeftTex = new Texture("idle_L (1).png")
-	var idleRightFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleRightTex, idleRightTex.getWidth() / 2, idleRightTex.getHeight() / 1)
-	var idleLeftFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleLeftTex, idleLeftTex.getWidth() / 2, idleLeftTex.getHeight() / 1)
+	val idleLeftTex = new Texture("idle_R (1).png")
+	val idleRightTex = new Texture("idle_L (1).png")
+	var idleRightFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleRightTex, idleRightTex.getWidth() / 2, idleRightTex.getHeight())
+	var idleLeftFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleLeftTex, idleLeftTex.getWidth() / 2, idleLeftTex.getHeight())
 	var walkFrames: Array[Array[TextureRegion]] = TextureRegion.split(farmerTex, farmerTex.getWidth() / 8, farmerTex.getHeight() / 3)
 	var idleAnimationLeft = new Animation(.086f, idleLeftFrames(0): _*)
 	var idleAnimationRight = new Animation(.086f, idleRightFrames(0): _*)
@@ -39,6 +39,7 @@ class Character{
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.A) || Gdx.input.isKeyPressed(Input.Keys.LEFT)){
 			facingRight = false
+			currAnimation = moveLeftAnimation
             farmer.x = farmer.x - 175 * Gdx.graphics.getDeltaTime();
         }
 		if(Gdx.input.isKeyPressed(Input.Keys.S) || Gdx.input.isKeyPressed(Input.Keys.DOWN)){
@@ -46,6 +47,7 @@ class Character{
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.D) || Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
 			facingRight = true
+			currAnimation = moveRightAnimation
 			farmer.x = farmer.x + 175 * Gdx.graphics.getDeltaTime();
 		}
 	}
