@@ -111,6 +111,12 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 
 		if(curr_pos == bot_left){
 
+			if(character.farmer.y >= 48 && character.farmer.y <= 480){
+				if(character.farmer.x >= 240 && character.farmer.x <= 960){
+					//place at nearest square
+					
+				}
+			}
 			
 			for(currSoil <- soilGroup) {
 				currSoil.render()
