@@ -111,7 +111,7 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 		mapRenderer.getBatch().begin()
 
 		if(curr_pos == bot_left){
-			if(Gdx.input.isKeyPressed(Input.Keys.SPACE)){ //if space pressed
+			if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){ //if space pressed
 				if(character.farmer.y >= 220 && character.farmer.y <= 650){ //check inside dirt patch y
 					if(character.farmer.x >= 240 && character.farmer.x <= 960){ //check inside dirt patch x
 						if(inventory.selectedItem == inventory.items(2)){ //seed1
