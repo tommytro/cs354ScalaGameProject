@@ -77,7 +77,7 @@ class Chicken(x:Float, y:Float){
 		stateTime = stateTime + Gdx.graphics.getDeltaTime()
 		currentFrame = currAnimation.getKeyFrame(stateTime, true)
 		spriteBatch.begin()
-		spriteBatch.draw(currentFrame, farmer.x, farmer.y, 64, 64)
+		spriteBatch.draw(currentFrame, farmer.x, farmer.y, 32, 32)
 		spriteBatch.end()
 	}
 }
