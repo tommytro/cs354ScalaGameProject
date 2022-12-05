@@ -124,66 +124,140 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 
 		if(curr_pos == bot_left){ //only render plants when on garden screen
 			if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){ //if space pressed
-				if(character.farmer.y >= 220 && character.farmer.y <= 650){ //check inside dirt patch y
+				if(inventory.selectedItem == inventory.items(0)){ //hoe
+							//find a way to place at nearest square
+							if(character.facingRight){
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(9, character.farmer.x + 56, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
+							else{
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(9, character.farmer.x - 32, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
+							
+				}
+				else if(character.farmer.y >= 220 && character.farmer.y <= 650){ //check inside dirt patch y
 					if(character.farmer.x >= 240 && character.farmer.x <= 960){ //check inside dirt patch x
 						if(inventory.selectedItem == inventory.items(2)){ //seed1n
-							//find a way to place at nearest square
-							var soil = new Soil()
-							var soilPlant: Plant = new Plant(0, character.farmer.x, character.farmer.y)
-							soil.setPlant(soilPlant)
-							soilGroup :+= soil
-							currSoilNum += 1
+							if(character.facingRight){
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(0, character.farmer.x + 56, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
+							else{
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(0, character.farmer.x - 32, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
 						}
 						else if(inventory.selectedItem == inventory.items(3)){ //seed2
-							//find a way to place at nearest square
-							var soil = new Soil()
-							var soilPlant: Plant = new Plant(1, character.farmer.x, character.farmer.y)
-							soil.setPlant(soilPlant)
-							soilGroup :+= soil
-							currSoilNum += 1
+							if(character.facingRight){
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(1, character.farmer.x + 56, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
+							else{
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(1, character.farmer.x - 32, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
 						}
 						else if(inventory.selectedItem == inventory.items(4)){ //seed3
-							//find a way to place at nearest square
-							var soil = new Soil()
-							var soilPlant: Plant = new Plant(2, character.farmer.x, character.farmer.y)
-							soil.setPlant(soilPlant)
-							soilGroup :+= soil
-							currSoilNum += 1
+							if(character.facingRight){
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(2, character.farmer.x + 56, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
+							else{
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(2, character.farmer.x - 32, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
 						}
 						else if(inventory.selectedItem == inventory.items(5)){ //seed4
-							//find a way to place at nearest square
-							var soil = new Soil()
-							var soilPlant: Plant = new Plant(3, character.farmer.x, character.farmer.y)
-							soil.setPlant(soilPlant)
-							soilGroup :+= soil
-							currSoilNum += 1
+							if(character.facingRight){
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(3, character.farmer.x + 56, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
+							else{
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(3, character.farmer.x - 32, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
 						}
 						else if(inventory.selectedItem == inventory.items(6)){ //seed5
-							//find a way to place at nearest square
-							var soil = new Soil()
-							var soilPlant: Plant = new Plant(4, character.farmer.x, character.farmer.y)
-							soil.setPlant(soilPlant)
-							soilGroup :+= soil
-							currSoilNum += 1
+							if(character.facingRight){
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(4, character.farmer.x + 56, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
+							else{
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(4, character.farmer.x - 32, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
 						}
 						else if(inventory.selectedItem == inventory.items(7)){ //seed6
-							//find a way to place at nearest square
-							var soil = new Soil()
-							var soilPlant: Plant = new Plant(5, character.farmer.x, character.farmer.y)
-							soil.setPlant(soilPlant)
-							soilGroup :+= soil
-							currSoilNum += 1
+							if(character.facingRight){
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(5, character.farmer.x + 56, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
+							else{
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(5, character.farmer.x - 32, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
 						}
 						else if(inventory.selectedItem == inventory.items(8)){ //seed7
-							//find a way to place at nearest square
-							var soil = new Soil()
-							var soilPlant: Plant = new Plant(6, character.farmer.x, character.farmer.y)
-							soil.setPlant(soilPlant)
-							soilGroup :+= soil
-							currSoilNum += 1
+							if(character.facingRight){
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(6, character.farmer.x + 56, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
+							else{
+								var soil = new Soil()
+								var soilPlant: Plant = new Plant(6, character.farmer.x - 32, character.farmer.y)
+								soil.setPlant(soilPlant)
+								soilGroup :+= soil
+								currSoilNum += 1
+							}
 						}
 						else{
-							//hoe and can currently do nothing
+							//can currently does nothing
 						}
 					}
 				}
