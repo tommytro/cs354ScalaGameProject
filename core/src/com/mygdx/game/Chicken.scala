@@ -17,16 +17,16 @@ class Chicken(x:Float, y:Float){
     
     var moveSpeed : Float = 4
     var farmer: Rectangle = new Rectangle(x, y, 0, 0)
-	val farmerTex: Texture = GameScreen.farmerTex
-	val idleLeftTex = new Texture("idle_R.png")
-	val idleRightTex = new Texture("idle_L.png")
+	val farmerTex: Texture = GameScreen.chickTex
+	val idleLeftTex = new Texture("chick_R.png")
+	val idleRightTex = new Texture("chick_L.png")
 	var idleRightFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleRightTex, idleRightTex.getWidth() / 2, idleRightTex.getHeight() / 1)
 	var idleLeftFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleLeftTex, idleLeftTex.getWidth() / 2, idleLeftTex.getHeight() / 1)
-	var walkFrames: Array[Array[TextureRegion]] = TextureRegion.split(farmerTex, farmerTex.getWidth() / 8, farmerTex.getHeight() / 3)
+	var walkFrames: Array[Array[TextureRegion]] = TextureRegion.split(farmerTex, farmerTex.getWidth() / 4, farmerTex.getHeight() / 2)
 	var idleAnimationLeft = new Animation(.162f, idleLeftFrames(0): _*)
 	var idleAnimationRight = new Animation(.162f, idleRightFrames(0): _*)
-	var moveLeftAnimation = new Animation(.086f, walkFrames(1): _*)
-	var moveRightAnimation = new Animation(.086f, walkFrames(2): _*)
+	var moveLeftAnimation = new Animation(.162f, walkFrames(0): _*)
+	var moveRightAnimation = new Animation(.162f, walkFrames(1): _*)
 	var currAnimation = moveLeftAnimation
 	val spriteBatch = new SpriteBatch()
 	var currentFrame: TextureRegion = null
