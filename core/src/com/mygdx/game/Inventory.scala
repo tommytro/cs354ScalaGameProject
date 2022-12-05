@@ -52,16 +52,10 @@ class Inventory {
   //Hashmap
   var hashMap =  HashMap(0->inventoryTexture)
 
-  //Boolean values
-  //var hoeTextureEquipped:Boolean = true;
-  //var waterCanTextureEquipped:Boolean = true;
-  //var seedTextureEquipped:Boolean = true;
   var showInventory:Boolean = true; //always on
 
 
 def inventoryPosition(): Unit ={
-
-  //character.movementController()
 
   hashMap = hashMap + (1 -> hoeTexture)
   hashMap = hashMap + (2 -> waterCanTexture)
@@ -72,16 +66,6 @@ def inventoryPosition(): Unit ={
   hashMap = hashMap + (7 -> seed4)
   hashMap = hashMap + (8 -> seed5)
   hashMap = hashMap + (9 -> seed6)
-  //hashMap = hashMap + (10 -> seed8)
-
-  // if (Gdx.input.isKeyJustPressed(Input.Keys.I)) {
-  //   if(!showInventory){
-  //     showInventory=true
-  //   } else
-  //     {
-  //       showInventory=true
-  //     }
-  // }
 
   if(Gdx.input.isKeyPressed(Input.Keys.NUM_1)){
     //hashMap.remove(1)
@@ -128,31 +112,12 @@ def inventoryPosition(): Unit ={
     selectedItem = items(8)
     hashMap = hashMap + (0 -> inv9)
   }
-  // if (Gdx.input.isKeyPressed(Input.Keys.NUM_0)) {
-  //   //hashMap.remove(3)
-  //   selectedItem = null
-  // }
 
 }
 
 
   def render(): Unit = {
     batch.begin()
-
-    // if(!hoeTextureEquipped)
-    // {
-    //   batch.draw(hoeTexture, 200, 100)
-    // }
-
-    // if(!seedTextureEquipped)
-    // {
-    //   batch.draw(seedTexture,500,200)
-    // }
-
-    // if(!waterCanTextureEquipped)
-    // {
-    //   batch.draw(waterCanTexture,350,350)
-    // }
 
     hashMap.foreach {
       case (key, value) => batch.draw(value, (key * 36) - 36, 0)

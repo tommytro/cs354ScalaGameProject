@@ -37,40 +37,71 @@ class Character{
 
 		if(facingRight == false){
 			currAnimation = idleAnimationLeft
-			}else if(facingRight == true){
+		}else if(facingRight == true){
 			currAnimation = idleAnimationRight
-			}
+		}
 
         if(Gdx.input.isKeyPressed(Input.Keys.W) || Gdx.input.isKeyPressed(Input.Keys.UP)){
-
-			if(facingRight == false){
-			currAnimation = moveLeftAnimation
-			}else if(facingRight == true){
-			currAnimation = moveRightAnimation
+			if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)){
+				if(facingRight == false){
+				currAnimation = moveLeftAnimation
+				}else if(facingRight == true){
+				currAnimation = moveRightAnimation
+				}
+				farmer.y = farmer.y + 350 * Gdx.graphics.getDeltaTime();
+			}
+			else{
+				if(facingRight == false){
+				currAnimation = moveLeftAnimation
+				}else if(facingRight == true){
+				currAnimation = moveRightAnimation
+				}
+				farmer.y = farmer.y + 175 * Gdx.graphics.getDeltaTime();
 			}
 
-			farmer.y = farmer.y + 175 * Gdx.graphics.getDeltaTime();
-
 		}
+
 		if(Gdx.input.isKeyPressed(Input.Keys.A) || Gdx.input.isKeyPressed(Input.Keys.LEFT)){
-			facingRight = false
-			currAnimation = moveLeftAnimation
-            farmer.x = farmer.x - 175 * Gdx.graphics.getDeltaTime();
+			if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)){
+				facingRight = false
+				currAnimation = moveLeftAnimation
+            	farmer.x = farmer.x - 350 * Gdx.graphics.getDeltaTime();
+			}
+				else{
+				facingRight = false
+				currAnimation = moveLeftAnimation
+            	farmer.x = farmer.x - 175 * Gdx.graphics.getDeltaTime();
+			}
         }
 		if(Gdx.input.isKeyPressed(Input.Keys.S) || Gdx.input.isKeyPressed(Input.Keys.DOWN)){
-
-			if(facingRight == false){
-			currAnimation = moveLeftAnimation
-			}else if(facingRight == true){
-			currAnimation = moveRightAnimation
+			if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)){
+				if(facingRight == false){
+				currAnimation = moveLeftAnimation
+				}else if(facingRight == true){
+				currAnimation = moveRightAnimation
+				}
+				farmer.y = farmer.y - 350 * Gdx.graphics.getDeltaTime();
 			}
-
-			farmer.y = farmer.y - 175 * Gdx.graphics.getDeltaTime();
+			else{
+				if(facingRight == false){
+				currAnimation = moveLeftAnimation
+				}else if(facingRight == true){
+				currAnimation = moveRightAnimation
+				}
+				farmer.y = farmer.y - 175 * Gdx.graphics.getDeltaTime();
+			}
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.D) || Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
-			facingRight = true
-			currAnimation = moveRightAnimation
-			farmer.x = farmer.x + 175 * Gdx.graphics.getDeltaTime();
+			if(Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)){
+				facingRight = true
+				currAnimation = moveRightAnimation
+				farmer.x = farmer.x + 350 * Gdx.graphics.getDeltaTime();
+			}
+			else{
+				facingRight = true
+				currAnimation = moveRightAnimation
+				farmer.x = farmer.x + 175 * Gdx.graphics.getDeltaTime();
+			}
 		}
 	}
 

@@ -30,14 +30,6 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	var soilGroup: Array[Soil] = Array() 
 	var soilCount: Int = 1
 	var currSoilNum: Int = 0
-	// while(currSoilNum < soilCount){
-	// 	var soil = new Soil()
-	// 	var soilPlant: Plant = new Plant(currSoilNum, 300 + (48 * currSoilNum), 150)
-	// 	soil.setPos(300 + (48 * currSoilNum), 150)
-	// 	soil.setPlant(soilPlant)
-	// 	soilGroup :+= soil
-	// 	currSoilNum += 1
-	// }
 
 	var mapRenderer = new OrthogonalTiledMapRenderer(GameScreen.mapMgr.getCurrentMap(), MapManager.UNIT_SCALE)
 	val camera = new OrthographicCamera()
@@ -281,6 +273,13 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 		inventory.render()
 
 		mapRenderer.getBatch().end()
+
+		spriteBatch.begin()
+		if(Gdx.input.isKeyPressed(Input.Keys.H)){ //show controls
+			spriteBatch.draw(GameScreen.controlScreen, 0, 0)
+		}
+			spriteBatch.draw(GameScreen.helpKey, 1088, 0)
+		spriteBatch.end()
 	}
 
     override def hide(): Unit = {
@@ -305,6 +304,8 @@ object GameScreen{
 	val farmerTex = new Texture("walk and idle.png")
 	val chickTex = new Texture("chicken.png")
 	val allPlantsTex = new Texture("plants.png")
+	val controlScreen = new Texture("controls.png")
+	val helpKey = new Texture("H_key.png")
 	val soilTex = new Texture("TinyWonderFarm/tilemaps/summer farm tilemap.png")
 
 	private object VIEWPORT{
