@@ -20,11 +20,11 @@ class Character{
 	val farmerTex: Texture = GameScreen.farmerTex
 	val idleLeftTex = new Texture("idle_R.png")
 	val idleRightTex = new Texture("idle_L.png")
-	var idleRightFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleRightTex, idleRightTex.getWidth() / 2, idleRightTex.getHeight())
-	var idleLeftFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleLeftTex, idleLeftTex.getWidth() / 2, idleLeftTex.getHeight())
+	var idleRightFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleRightTex, idleRightTex.getWidth() / 2, idleRightTex.getHeight() / 1)
+	var idleLeftFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleLeftTex, idleLeftTex.getWidth() / 2, idleLeftTex.getHeight() / 1)
 	var walkFrames: Array[Array[TextureRegion]] = TextureRegion.split(farmerTex, farmerTex.getWidth() / 8, farmerTex.getHeight() / 3)
-	var idleAnimationLeft = new Animation(.086f, idleLeftFrames(0): _*)
-	var idleAnimationRight = new Animation(.086f, idleRightFrames(0): _*)
+	var idleAnimationLeft = new Animation(.162f, idleLeftFrames(0): _*)
+	var idleAnimationRight = new Animation(.162f, idleRightFrames(0): _*)
 	var moveLeftAnimation = new Animation(.086f, walkFrames(1): _*)
 	var moveRightAnimation = new Animation(.086f, walkFrames(2): _*)
 	var currAnimation = moveLeftAnimation

@@ -111,7 +111,6 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 
 		if(curr_pos == bot_left){
 
-			
 			for(currSoil <- soilGroup) {
 				currSoil.render()
 				currSoil.plant.render()
