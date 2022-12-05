@@ -17,7 +17,7 @@ class Soil(){
     var soil: Rectangle = new Rectangle(-100 + 1280/2, 720/2, 0, 0)
 
 	val soilTexMap: Texture = GameScreen.soilTex
-    var soilTex: TextureRegion = new TextureRegion(soilTexMap, 100, 176, 16, 16)
+    var soilTex: TextureRegion = new TextureRegion(soilTexMap, 100, 350, 16, 16) //176 -> 350 for transparent soil (sorry)
 
 	val spriteBatch = new SpriteBatch()
 	var stateTime = 0f
@@ -39,7 +39,7 @@ class Soil(){
         soilTex = new TextureRegion(soilTexMap, 0, 0, 16, 16)
 	}
 
-    def setPos(x:Int, y:Int): Unit = {
+    def setPos(x:Float, y:Float): Unit = {
         soil.x = x
         soil.y = y
     }

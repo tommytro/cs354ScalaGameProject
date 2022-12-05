@@ -15,6 +15,7 @@ import com.mygdx.game.MyGdxGame
 import com.mygdx.game.MapManager
 import com.mygdx.game.Character
 import com.mygdx.game.Plant
+import com.mygdx.game.Inventory
 
 class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	
@@ -24,14 +25,14 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 	var soilGroup: Array[Soil] = Array() /////////////////////////////////////////////////////////////////////////////////////////////
 	var soilCount: Int = 1
 	var currSoilNum: Int = 0
-	while(currSoilNum < soilCount){
-		var soil = new Soil()
-		var soilPlant: Plant = new Plant(currSoilNum, 300 + (48 * currSoilNum), 150)
-		soil.setPos(300 + (48 * currSoilNum), 150)
-		soil.setPlant(soilPlant)
-		soilGroup :+= soil
-		currSoilNum += 1
-	}
+	// while(currSoilNum < soilCount){
+	// 	var soil = new Soil()
+	// 	var soilPlant: Plant = new Plant(currSoilNum, 300 + (48 * currSoilNum), 150)
+	// 	soil.setPos(300 + (48 * currSoilNum), 150)
+	// 	soil.setPlant(soilPlant)
+	// 	soilGroup :+= soil
+	// 	currSoilNum += 1
+	// }
 
 	var mapRenderer = new OrthogonalTiledMapRenderer(GameScreen.mapMgr.getCurrentMap(), MapManager.UNIT_SCALE)
 	val camera = new OrthographicCamera()
@@ -110,11 +111,69 @@ class GameScreen(game: MyGdxGame) extends ApplicationAdapter with Screen {
 		mapRenderer.getBatch().begin()
 
 		if(curr_pos == bot_left){
-
-			if(character.farmer.y >= 48 && character.farmer.y <= 480){
-				if(character.farmer.x >= 240 && character.farmer.x <= 960){
-					//place at nearest square
-					
+			if(Gdx.input.isKeyPressed(Input.Keys.SPACE)){ //if space pressed
+				if(character.farmer.y >= 220 && character.farmer.y <= 650){ //check inside dirt patch y
+					if(character.farmer.x >= 240 && character.farmer.x <= 960){ //check inside dirt patch x
+						if(inventory.selectedItem == inventory.items(2)){ //seed1
+							//find a way to place at nearest square
+							var soil = new Soil()
+							var soilPlant: Plant = new Plant(0, character.farmer.x, character.farmer.y)
+							soil.setPlant(soilPlant)
+							soilGroup :+= soil
+							currSoilNum += 1
+						}
+						else if(inventory.selectedItem == inventory.items(3)){ //seed2
+							//find a way to place at nearest square
+							var soil = new Soil()
+							var soilPlant: Plant = new Plant(1, character.farmer.x, character.farmer.y)
+							soil.setPlant(soilPlant)
+							soilGroup :+= soil
+							currSoilNum += 1
+						}
+						else if(inventory.selectedItem == inventory.items(4)){ //seed3
+							//find a way to place at nearest square
+							var soil = new Soil()
+							var soilPlant: Plant = new Plant(2, character.farmer.x, character.farmer.y)
+							soil.setPlant(soilPlant)
+							soilGroup :+= soil
+							currSoilNum += 1
+						}
+						else if(inventory.selectedItem == inventory.items(5)){ //seed4
+							//find a way to place at nearest square
+							var soil = new Soil()
+							var soilPlant: Plant = new Plant(3, character.farmer.x, character.farmer.y)
+							soil.setPlant(soilPlant)
+							soilGroup :+= soil
+							currSoilNum += 1
+						}
+						else if(inventory.selectedItem == inventory.items(6)){ //seed5
+							//find a way to place at nearest square
+							var soil = new Soil()
+							var soilPlant: Plant = new Plant(4, character.farmer.x, character.farmer.y)
+							soil.setPlant(soilPlant)
+							soilGroup :+= soil
+							currSoilNum += 1
+						}
+						else if(inventory.selectedItem == inventory.items(7)){ //seed6
+							//find a way to place at nearest square
+							var soil = new Soil()
+							var soilPlant: Plant = new Plant(5, character.farmer.x, character.farmer.y)
+							soil.setPlant(soilPlant)
+							soilGroup :+= soil
+							currSoilNum += 1
+						}
+						else if(inventory.selectedItem == inventory.items(8)){ //seed7
+							//find a way to place at nearest square
+							var soil = new Soil()
+							var soilPlant: Plant = new Plant(6, character.farmer.x, character.farmer.y)
+							soil.setPlant(soilPlant)
+							soilGroup :+= soil
+							currSoilNum += 1
+						}
+						else{
+							//hoe and can currently do nothing
+						}
+					}
 				}
 			}
 			

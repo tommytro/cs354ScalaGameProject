@@ -12,7 +12,7 @@ import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 
 //Argument determines the type of plant
-class Plant(pType:Int, x:Int, y:Int){
+class Plant(pType:Int, x:Float, y:Float){
     //0 for pumpkin, 1 for berry, 2 for carrot, 3 for potato, 4 for lettuce,
     //5 for wheat, 6 for strawberry, 7 for grapefruit, 8 for flower
     val plantType = pType
@@ -33,7 +33,7 @@ class Plant(pType:Int, x:Int, y:Int){
         plantTex = new TextureRegion(allPlantsTex, currState, plantTexLocs(plantType), 16, 16)
 	}
 
-    def changeType(pType:Int): Unit = {
+    def changeType(pType:Float): Unit = {
         //plantType = pType
     }
 
