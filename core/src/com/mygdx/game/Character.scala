@@ -20,25 +20,50 @@ class Character{
 	val farmerTex: Texture = GameScreen.farmerTex
 	val idleLeftTex = new Texture("idle_R.png")
 	val idleRightTex = new Texture("idle_L.png")
+	val swingTex = new Texture("farming animations.png")
 	var idleRightFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleRightTex, idleRightTex.getWidth() / 2, idleRightTex.getHeight() / 1)
 	var idleLeftFrames: Array[Array[TextureRegion]] = TextureRegion.split(idleLeftTex, idleLeftTex.getWidth() / 2, idleLeftTex.getHeight() / 1)
 	var walkFrames: Array[Array[TextureRegion]] = TextureRegion.split(farmerTex, farmerTex.getWidth() / 8, farmerTex.getHeight() / 3)
+	var swingFrames: Array[Array[TextureRegion]] = TextureRegion.split(swingTex, swingTex.getWidth() / 2, swingTex.getHeight() / 3)
 	var idleAnimationLeft = new Animation(.162f, idleLeftFrames(0): _*)
 	var idleAnimationRight = new Animation(.162f, idleRightFrames(0): _*)
 	var moveLeftAnimation = new Animation(.086f, walkFrames(1): _*)
 	var moveRightAnimation = new Animation(.086f, walkFrames(2): _*)
+	var swingRightAnimation = new Animation(.200f, swingFrames(1): _*)
+	var swingLeftAnimation = new Animation(.200f, swingFrames(2): _*)
 	var currAnimation = moveLeftAnimation
 	val spriteBatch = new SpriteBatch()
 	var currentFrame: TextureRegion = null
 	var stateTime = 0f
 	var facingRight = false
+	var swingDone = true
+	var swingFrame: Float = 0
 
    def movementController(): Unit = {
 
-		if(facingRight == false){
+	if(!swingDone){
+		if(!(stateTime <= swingFrame)){
+			swingDone = true
+		}
+	}
+
+	if(swingDone){
+		if(currAnimation == swingLeftAnimation){
 			currAnimation = idleAnimationLeft
-		}else if(facingRight == true){
+		}else if(currAnimation == swingRightAnimation){
 			currAnimation = idleAnimationRight
+		}
+
+		if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
+			if(currAnimation == moveLeftAnimation || currAnimation == idleAnimationLeft){
+				currAnimation = swingLeftAnimation
+				swingFrame = stateTime + 1
+				swingDone = false
+			}else if(currAnimation == moveRightAnimation || currAnimation == idleAnimationRight){
+				currAnimation = swingRightAnimation
+				swingFrame = stateTime + 1
+				swingDone = false
+			}
 		}
 
         if(Gdx.input.isKeyPressed(Input.Keys.W) || Gdx.input.isKeyPressed(Input.Keys.UP)){
@@ -101,6 +126,7 @@ class Character{
 				facingRight = true
 				currAnimation = moveRightAnimation
 				farmer.x = farmer.x + 175 * Gdx.graphics.getDeltaTime();
+				}
 			}
 		}
 	}
