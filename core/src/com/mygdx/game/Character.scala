@@ -41,28 +41,31 @@ class Character{
 
    def movementController(): Unit = {
 
-	if(!swingDone){
+	if(swingDone == false){
 		if(!(stateTime <= swingFrame)){
 			swingDone = true
 		}
 	}
 
 	if(swingDone){
-		if(currAnimation == swingLeftAnimation){
+		if(currAnimation == swingLeftAnimation || currAnimation == moveLeftAnimation || currAnimation == idleAnimationLeft){
 			currAnimation = idleAnimationLeft
-		}else if(currAnimation == swingRightAnimation){
+		}else if(currAnimation == swingRightAnimation || currAnimation == moveRightAnimation || currAnimation == idleAnimationRight){
 			currAnimation = idleAnimationRight
 		}
 
 		if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
-			if(currAnimation == moveLeftAnimation || currAnimation == idleAnimationLeft){
+			if(currAnimation == idleAnimationLeft){
 				currAnimation = swingLeftAnimation
 				swingFrame = stateTime + 1
 				swingDone = false
-			}else if(currAnimation == moveRightAnimation || currAnimation == idleAnimationRight){
+			}else if(currAnimation == idleAnimationRight){
 				currAnimation = swingRightAnimation
 				swingFrame = stateTime + 1
 				swingDone = false
+			}
+			else{
+				swingDone = true
 			}
 		}
 
