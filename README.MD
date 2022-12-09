@@ -8,7 +8,6 @@ PROJECT LOGO
 
 <h1>Farming in Scala</h1>
 
-<!-- ABOUT THE PROJECT -->
  About The Project
 
 
@@ -37,7 +36,6 @@ This is commented out. -->
 ## Project Members
 Joshua Fenske, Tommy Trovinger, Lukas Karlsson, Sayre Peterson
 
-
 ## Prerequisites
 
 The Prerequisites for running the game: Scala and Gradle.
@@ -58,5 +56,7 @@ $ brew install gradle
 ## Running the game
 With sbt and gradle installed, navigate to the root of the directory on your system and run the command: ./gradlew desktop:run
 
+<!--
 ## Usage
 ##<img src="assets\controls.png">
+-->
