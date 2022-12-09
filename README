@@ -1,0 +1,50 @@
+## Farming in Scala Final Project 
+
+ * Authors: Tommy Trovinger, Josh Fenske, Lukas Karlsson, Sayre Peterson 
+ * Class: CS354
+ * Semester: Fall 2022
+
+
+## About The Project
+
+The goal of this project was to learn a new language by creating a project that utilized the language. We chose to use Scala, which is both
+an object-oriented and functional programming language.
+
+In its current state, our project allows a user to navigate a small map and plant seeds, which progress into fully grown plants. 
+The user has a Minecraft like inventory system, that is displayed in the bottom left corne of the screen. 
+Right now, the user spawns with a hoe, watering pot and seven different types of seeds which can be planted 
+by simply pressing the space bar while the seed is selected. 
+There is currently no use for the hoe and watering pot as we were mainly concerned with getting plant growth working. 
+There is also no use for the plants once they have grown. Plants reach full gorth in less than a minute for testing purposes. 
+Essentially, Farming in Scala is a simple demonstration of a map and character using pixel art.
+
+
+## Installing and Running the Program
+
+There are two different ways to run the program:
+
+Method 1: 
+    Since we are using gradle paired with libgdx, we are able to compile our program into a .jar file,
+    which makes sharing and running pretty easy, this file is located in the directory: 
+    
+    \cs354ScalaGameProject\desktop\build\libs\desktop-1.0.jar
+
+    Our .jar is also avaible at the following link as "desktop-1.0.jar":
+    https://drive.google.com/drive/folders/1Ex-JPSfJS43eoS_tTUp8FjFZNZJNBZqm
+
+    If you are using Java 8 or above this file should execute with no issues. 
+
+Method 2: 
+    You can also run our code straight from the repository. Do to this you will need to do a bit of setup:
+        * Download and install gradle: https://gradle.org/install/ 
+        * The repo folder (cs354ScalaGameProject) has gradle folders that are correctly setup. All you need 
+          to do now is run the following command: ./gradlew desktop:run
+        * Our source code should compile after a few seconds and open in a new window!
+        * Side note: If you want to make a new .jar file, you can type ./gradlew desktop:dist to create a new .jar file. 
+          This new file can be found in the same location as discussed in method 1. 
+
+
+## Usage
+
+While in game, press H to view the command list for the game, WASD controls move the character. Have fun!
+
