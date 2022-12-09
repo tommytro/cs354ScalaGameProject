@@ -13,12 +13,8 @@ import com.mygdx.game.AssetsManager
 
 class MapManager{
 
-    val playerStart = new Vector2(0, 0)
     val mapTable = new Hashtable[String, String]()
-
     mapTable.put(MapManager.OUTSIDE_MAP, "maps/outside_map.tmx")
-
-    val playerStartPositionRect = new Vector2(0, 0)
     val convertedUnits = new Vector2(0,0)
 
     var currentMap:TiledMap = null
@@ -27,8 +23,8 @@ class MapManager{
     var collisionLayer:MapLayer = null
 
      /** 
-     * laoadMap execute when used to load a specific map
-     * @param mapName:String Name of the map
+     * laoadMap a specific map
+     * @param mapName:String Name of map
      */
     def loadMap(mapName:String){
 
@@ -52,8 +48,8 @@ class MapManager{
     }
 
     /**
-     * Get current map Tiled for rendering
-     * @return TiledMap Tiled of the Map
+     * Get current tile map for render
+     * @return TiledMap
      */
     def getCurrentMap():TiledMap = {
     	if(currentMap == null){
@@ -67,15 +63,14 @@ class MapManager{
 object MapManager{
 
 	/**
-	 * Apply method for creating MapManager
-     * @return MapManager New instance of MapManager
+	 * method for creating MapManager
+     * @return New instance of MapManager
 	 */
 	def apply():MapManager = new MapManager
 
 	private val TAG:String = MapManager.getClass.getSimpleName()
 
 	val OUTSIDE_MAP:String = "OUTSIDE_MAP"
-	private val MAP_COLLISION_LAYER:String = "MAP_COLLISION_LAYER"
 
 	val UNIT_SCALE:Float = 1/16f
 

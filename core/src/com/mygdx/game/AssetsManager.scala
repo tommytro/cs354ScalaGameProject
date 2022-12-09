@@ -15,8 +15,8 @@ object AssetsManager{
 	private val filePathResolver = new InternalFileHandleResolver()
 
 	/**
-	 * Unload asset that are loaded
-	 * @param assetFilenamePath:String Path to the asset
+	 * Unload loaded assets
+	 * @param assetFilenamePath:String Path to asset
 	 */
 	def unloadAsset(assetFilenamePath:String){
 		if(assetManager.isLoaded(assetFilenamePath)){
@@ -28,7 +28,7 @@ object AssetsManager{
 
 	/**
 	 * Load map asset
-	 * @param mapFilenamePath:String Path to the map asset
+	 * @param mapFilenamePath:String Path to asset
 	 */
 	def loadMapAsset(mapFilenamePath:String){
 		if(filePathResolver.resolve(mapFilenamePath).exists()){
@@ -42,9 +42,9 @@ object AssetsManager{
 	}
 
 	/**
-	 * Get loaded map asset
-	 * @param  mapFilenamePath  Path to the asset
-	 * @return Option[TiledMap] Option of Tiled asset if any
+	 * Get loaded map
+	 * @param  mapFilenamePath  Path to asset
+	 * @return Option[TiledMap]
 	 */
 	def getMapAsset(mapFilenamePath:String):Option[TiledMap] = {
 		if(assetManager.isLoaded(mapFilenamePath)){
@@ -70,9 +70,9 @@ object AssetsManager{
 	}
 
 	/**
-	 * Get loaded texture asset
-	 * @param  textureFilenamePath:String Path to the asset
-	 * @return Option[Texture]            Option of Texture asset if any
+	 * Get loaded texture
+	 * @param  textureFilenamePath:String Path to asset
+	 * @return Option[Texture]
 	 */
 	def getTextureAsset(textureFilenamePath:String):Option[Texture] = {
 		if(assetManager.isLoaded(textureFilenamePath)){
